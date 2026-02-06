@@ -3,9 +3,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { text, voiceId } = req.body;
-  const apiKey = process.env.ELEVENLABS_API_KEY;
-  
+  const { text, voiceId, apiKey } = req.body;
+
   if (!text || !voiceId || !apiKey) {
     return res.status(400).json({ error: 'Missing parameters' });
   }
